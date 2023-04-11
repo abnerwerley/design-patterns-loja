@@ -16,13 +16,15 @@ public class TesteDescontos {
 		BigDecimal desconto5Itens = calculadora.calcular(orcamento5Itens);
 		BigDecimal desconto700 = calculadora.calcular(orcamento700);
 
-		System.out.println(desconto6Itens.compareTo(new BigDecimal("20.0")) >= 0
+		System.out.println(desconto6Itens.compareTo(new BigDecimal("20.0")) == 0
 				? "Sucesso, " + desconto6Itens + " reais de desconto para mais de 5 itens"
 				: "Não deu certo.");
-		System.out.println(desconto5Itens.compareTo(BigDecimal.ZERO) >= 0
+		
+		System.out.println(desconto5Itens.compareTo(BigDecimal.ZERO) == 0
 				? "Sucesso," + desconto5Itens + " reais de desconto para 4 quantidades, que não passa de 500"
 				: "Não deu certo.");
-		System.out.println(desconto700.compareTo(new BigDecimal("35.0")) >= 0
+		
+		System.out.println(desconto700.compareTo(new BigDecimal("35.0")) == 0
 				? "Sucesso," + desconto700 + " reais de desconto para orcamento de 700 reais"
 				: "Não deu certo. " + desconto700);
 	}
