@@ -8,7 +8,7 @@ import br.com.loja.orcamento.Orcamento;
 public class TesteImpostos {
 
 	public static void main(String[] args) {
-		Orcamento orcamento = new Orcamento(new BigDecimal("1000"));
+		Orcamento orcamento = new Orcamento(new BigDecimal("1000"), 5);
 		CalculadoraDeImpostos calculadora = new CalculadoraDeImpostos();
 
 		BigDecimal impostoIcms = calculadora.calcular(orcamento, new ICMS());
