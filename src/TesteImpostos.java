@@ -14,9 +14,9 @@ public class TesteImpostos {
 		BigDecimal impostoIcms = calculadora.calcular(orcamento, new ICMS());
 		BigDecimal impostoIss = calculadora.calcular(orcamento, new ISS());
 
-		System.out.println(impostoIcms.compareTo(new BigDecimal("100.0")) >= 0 ? "Sucesso, 100 reais de imposto ICMS"
+		System.out.println(impostoIcms.compareTo(new BigDecimal("100.0")) == 0 ? "Sucesso, 100 reais de imposto ICMS"
 				: "Não deu certo.");
-		System.out.println(impostoIss.compareTo(new BigDecimal("60.0")) >= 0 ? "Sucesso, 60 reais de imposto ISS"
+		System.out.println(impostoIss.compareTo(new BigDecimal("60.0")) == 0 ? "Sucesso, 60 reais de imposto ISS"
 				: "Não deu certo.");
 	}
 }
