@@ -3,6 +3,7 @@ package br.com.loja;
 import java.math.BigDecimal;
 
 import br.com.loja.pedido.GeraPedido;
+import br.com.loja.pedido.GeraPedidoHandler;
 
 public class TestePedidos {
 
@@ -11,7 +12,8 @@ public class TestePedidos {
         BigDecimal valorOrcamento = new BigDecimal("2000");
         int quantidadeItens = 3;
 
-        GeraPedido gerador = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
-        gerador.executar();
+        GeraPedido pedidoGerado = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
+        GeraPedidoHandler handler = new GeraPedidoHandler(/* dependencias */);
+        handler.executar(pedidoGerado);
     }
 }
