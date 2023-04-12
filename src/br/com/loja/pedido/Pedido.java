@@ -27,4 +27,10 @@ public class Pedido {
     public Orcamento getOrcamento() {
         return orcamento;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente: " + getCliente() + "; Data: " + getData().toString() + "; Orcamento: "
+                + getOrcamento().toString();
+    }
 }
