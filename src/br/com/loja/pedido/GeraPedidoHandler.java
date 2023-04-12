@@ -1,14 +1,21 @@
 package br.com.loja.pedido;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.loja.orcamento.Orcamento;
 
 public class GeraPedidoHandler {
 
-    // construtor com injecao de dependencias: repository, service, etc...
-    public GeraPedidoHandler() {
+    private List<AcoesPedido> acoes = new ArrayList<>();
 
+    // construtor com injecao de dependencias: repository, service, etc...
+    public GeraPedidoHandler(List<AcoesPedido> acoes) {
+        this.acoes = acoes;
+    }
+
+    public GeraPedidoHandler() {
     }
 
     public void executar(GeraPedido dados) {
@@ -16,10 +23,6 @@ public class GeraPedidoHandler {
 
         Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
 
-        EnviarEmailPedido enviarEmailPedido = new EnviarEmailPedido();
-        SalvarPedido salvarPedido = new SalvarPedido();
-
-        enviarEmailPedido.executar(pedido);
-        salvarPedido.executar(pedido);
+        acoes.forEach(a -> a.executar(pedido));
     }
 }
