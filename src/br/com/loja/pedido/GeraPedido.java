@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 import br.com.loja.orcamento.Orcamento;
 
-public class GeraPedido {
+public class GeraPedido implements Command {
 
     private String cliente;
     private BigDecimal valorOrcamento;
@@ -29,13 +29,13 @@ public class GeraPedido {
         return valorOrcamento;
     }
 
-    public Pedido gerar() {
+    @Override
+    public void executar() {
         Orcamento orcamento = new Orcamento(this.valorOrcamento, this.quantidadeItens);
         LocalDateTime data = LocalDateTime.now();
 
+        Pedido pedido = new Pedido(this.cliente, data, orcamento);
         System.out.println("Salva pedido no banco de dados.");
         System.out.println("Enviar email com dados do novo pedido.");
-
-        return new Pedido(this.cliente, data, orcamento);
     }
 }

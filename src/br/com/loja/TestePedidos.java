@@ -12,7 +12,6 @@ public class TestePedidos {
         int quantidadeItens = 3;
 
         GeraPedido gerador = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
-        System.out.println(gerador.gerar());
-
+        gerador.executar();
     }
 }
